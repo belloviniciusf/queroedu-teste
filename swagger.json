@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Quero Educação",
-    "description": "Teste técnico - OFFERS API",
+    "description": "Teste técnico - API de ofertas \n\n Ao adicionar o token é necessário adicionar o prefixo Bearer \n \n Vinícius Feres Belló",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
