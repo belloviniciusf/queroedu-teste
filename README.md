@@ -83,7 +83,7 @@ $ yarn test
 
 A documentação completa dos endpoints está disponível em https://queroedu-test.herokuapp.com/docs/#/. Além disso, o arquivo de importação .json do software Insomnia está disponível na raiz do projeto.
 
-# Autenticação
+<i>Autenticação</i>
 Ao usar os endpoints de cursos e ofertas é necessário um token, para isso é necessário fazer o login. Caso queira criar uma conta, use a rota de /users.
 <b>Ao adicionar o token no Swagger é necessário adicionar o prefixo Bearer</b>
 
