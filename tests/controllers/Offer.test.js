@@ -10,7 +10,7 @@ describe('offer controller tests', () => {
     const response = await request(global.server).get('/offers').set('Authorization', `Bearer ${global.auth}`);
 
     expect(response.status).toEqual(200);
-    expect(response.body).toHaveProperty('count');
+    expect(response.body).toHaveProperty('total');
     expect(response.body).toHaveProperty('offers');
   });
   it('should fires an error', async () => {
