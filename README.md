@@ -67,12 +67,19 @@ $ make seeds
 # Inicie o projeto
 
 $ yarn dev
+
+
+# Para executar os testes
+
+$ yarn test
 ```
 
 
 ## Endpoints
 
-Ao usar os endpoints é necessário um token, para isso basta criar uma conta ou fazer login em uma existente. Ao fazer login retorna-se o token de acesso.
+A documentação completa dos endpoints está disponível em https://queroedu-test.herokuapp.com/docs/#/.
+
+Ao usar os endpoints de cursos e ofertas é necessário um token, para isso é necessário fazer o login. Caso queira criar uma conta, use a rota de /users.
 
 ## POST - /auth/login
 
@@ -93,4 +100,62 @@ Esta conta já está criada
     "password": "queroedu"
 }
 
+```
+
+## GET - /courses
+
+```json
+{
+    "total": 10,
+    "courses": [
+      {
+        "name": "História",
+        "kind": "Virtual",
+        "level": "Tecnólogo",
+        "shift": "Manhã",
+        "university": {
+          "name": "Universidade 8",
+          "score": 2,
+          "logo_url": "https://api.adorable.io/avatars/8"
+        },
+        "campus": {
+          "name": "São Paulo",
+          "city": "Campus 8"
+        }
+      }
+    ]
+}
+```
+
+## GET - /offers
+
+```json
+{
+    "total": 10,
+    "offers": [
+      {
+        "full_price": 781,
+        "price_with_discount": 100,
+        "discount_percentage": 87.2,
+        "start_date": "29/09/2020",
+        "enrollment_semester": "2020.2",
+        "enabled": 1,
+        "course": {
+          "kind": "Virtual",
+          "level": "Licenciatura",
+          "shift": "Noite",
+          "name": "Biomedicina"
+        },
+        "campus": {
+          "city": "São Carlos",
+          "name": "Campus 5"
+        },
+        "university": {
+          "name": "Universidade 5",
+          "score": 4,
+          "logo_url": "https://api.adorable.io/avatars/5"
+        }
+      }
+    ]
+}
 ```
