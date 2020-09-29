@@ -119,17 +119,17 @@
           {
             "name": "kind",
             "in": "query",
-            "description": "Modalidade do curso"
+            "description": "Tipo do curso"
           },
           {
             "name": "level",
             "in": "query",
-            "description": "Tipo do curso"
+            "description": "Grau do curso"
           },
           {
             "name": "shift",
             "in": "query",
-            "description": "Período do curso"
+            "description": "Turno do curso"
           }
         ],
         "description": "Listar cursos",
@@ -173,17 +173,17 @@
           {
             "name": "kind",
             "in": "query",
-            "description": "Modalidade do curso"
+            "description": "Tipo do curso"
           },
           {
             "name": "level",
             "in": "query",
-            "description": "Tipo do curso"
+            "description": "Grau do curso"
           },
           {
             "name": "shift",
             "in": "query",
-            "description": "Período do curso"
+            "description": "Turno do curso"
           },
           {
             "name": "city",
