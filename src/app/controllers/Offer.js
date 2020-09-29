@@ -16,7 +16,7 @@ class OfferController {
 
     if (orderBy) order.push(['price_with_discount', orderBy]);
 
-    const { count, rows: offers } = await Offer.findAndCountAll({
+    const { count: total, rows: offers } = await Offer.findAndCountAll({
       attributes: [
         'full_price',
         'price_with_discount',
@@ -84,7 +84,7 @@ class OfferController {
       nest: true,
     });
 
-    return res.status(200).json({ count, offers });
+    return res.status(200).json({ total, offers });
   }
 }
 

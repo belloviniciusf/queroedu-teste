@@ -11,7 +11,7 @@ class CourseController {
   async list(req, res) {
     const { page = 1, kind = '', level = '', shift = '', city = '' } = req.query;
 
-    const { count, rows: courses } = await Course.findAndCountAll({
+    const { count: total, rows: courses } = await Course.findAndCountAll({
       attributes: [
         'name',
         renameColumn('kind.name', 'kind'),
@@ -65,7 +65,7 @@ class CourseController {
       nest: true,
     });
 
-    return res.status(200).json({ count, courses });
+    return res.status(200).json({ total, courses });
   }
 }
 
