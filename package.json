@@ -4,6 +4,7 @@
   "description": "Teste para o processo seletivo da QueroEducação",
   "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "jest --no-cache --maxWorkers 1 --verbose",
     "db:migrate": "sequelize db:migrate",
