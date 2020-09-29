@@ -46,6 +46,10 @@ $ cd queroedu-teste
 
 # Crie uma cópia do arquivo .env.example e renomeie para .env
 
+# Mac e Linux
+
+$ cp .env.example .env
+
 # Instale as dependências
 $ yarn
 
