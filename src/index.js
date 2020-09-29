@@ -18,7 +18,7 @@ class App {
     this.server = express();
     this.middlewares();
     this.server.use(routes);
-    this.server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    this.server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     this.exceptionHandler();
     this.server.use(errors());
   }

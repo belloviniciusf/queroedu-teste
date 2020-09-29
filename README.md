@@ -2,6 +2,10 @@
   Teste técnico - Quero Educação
 </h1>
 
+## Informações gerais
+
+O projeto encontra-se disponível no Heroku (https://queroedu-test.herokuapp.com/), assim como toda a documentação das rotas (https://queroedu-test.herokuapp.com/docs/#/)
+
 ## 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
@@ -15,6 +19,10 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - Jest
 - Swagger
 
+## Commits
+
+O projeto seguiu o conceito de commits semântico disponível em https://ildaneta.dev/posts/entendo-a-import%C3%A2ncia-dos-commits-sem%C3%A2nticos/
+
 ## 🚀 Como executar o projeto
 
 ### Pré-requisitos
@@ -27,10 +35,6 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 O banco de dados em ambiente de desenvolvimento está em um container docker.
 
-### Commits
-
-O projeto seguiu o conceito de commits semântico disponível em https://ildaneta.dev/posts/entendo-a-import%C3%A2ncia-dos-commits-sem%C3%A2nticos/
-
 ### Primeiros passos
 
 ```bash
@@ -39,6 +43,8 @@ $ git clone https://github.com/belloviniciusf/queroedu-teste
 
 # Acesse a pasta criada
 $ cd queroedu-teste
+
+# Crie uma cópia do arquivo .env.example e renomeie para .env
 
 # Instale as dependências
 $ yarn
@@ -61,4 +67,30 @@ $ make seeds
 # Inicie o projeto
 
 $ yarn dev
+```
+
+
+## Endpoints
+
+Ao usar os endpoints é necessário um token, para isso basta criar uma conta ou fazer login em uma existente. Ao fazer login retorna-se o token de acesso.
+
+## POST - /auth/login
+
+Esta conta já está criada
+
+```json
+{
+    "email": "teste@queroedu.com.br",
+    "password": "queroedu"
+}
+```
+
+## POST - /users
+
+```json
+{
+    "email": "john@doe.com",
+    "password": "queroedu"
+}
+
 ```
