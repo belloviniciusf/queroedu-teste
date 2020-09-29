@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+
+  dbquero:
+    image: mysql:8
+    container_name: dbquero
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - ${DB_PORT}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+
+

@@ -1,0 +1,373 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Quero Educação",
+    "description": "Teste técnico - OFFERS API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Autenticação",
+      "description": "Autenticação na API"
+    },
+    {
+      "name": "Cursos",
+      "description": "Listagem de cursos"
+    },
+    {
+      "name": "Ofertas",
+      "description": "Listagem de ofertas"
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "Login no sistema",
+        "parameters": [
+          {
+            "name": "auth",
+            "in": "body",
+            "description": "Credenciais de acesso",
+            "schema": {
+              "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Login efetuado",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Autenticação"
+        ],
+        "description": "Criar um novo usuário",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "Informações do usuário",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário criado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+      }
+    },
+    "/courses": {
+      "get": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "tags": [
+          "Cursos"
+        ],
+        "parameters": [
+          {
+            "name": "university",
+            "in": "query",
+            "description": "Nome da universidade"
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "description": "Modalidade do curso"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Tipo do curso"
+          },
+          {
+            "name": "shift",
+            "in": "query",
+            "description": "Período do curso"
+          }
+        ],
+        "description": "Listar cursos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de cursos",
+            "schema": {
+              "$ref": "#/definitions/Courses"
+            }
+          },
+          "401": {
+            "description": "Você não tem permissão para acessar esta rota"
+          }
+        }
+      }
+    },
+    "/offers": {
+      "get": {
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "tags": [
+          "Ofertas"
+        ],
+        "parameters": [
+          {
+            "name": "university",
+            "in": "query",
+            "description": "Nome da universidade"
+          },
+          {
+            "name": "course",
+            "in": "query",
+            "description": "Nome do curso"
+          },
+          {
+            "name": "kind",
+            "in": "query",
+            "description": "Modalidade do curso"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Tipo do curso"
+          },
+          {
+            "name": "shift",
+            "in": "query",
+            "description": "Período do curso"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "description": "Nome da cidade"
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "Ordenar por preço com desconto"
+          }
+        ],
+        "description": "Listar cursos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de cursos",
+            "schema": {
+              "$ref": "#/definitions/Offers"
+            }
+          },
+          "401": {
+            "description": "Você não tem permissão para acessar esta rota"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Login": {
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Auth": {
+      "properties": {
+        "user": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "required": [
+        "fullname",
+        "email",
+        "password"
+      ],
+      "properties": {
+        "fullname": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
+    "University": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "score": {
+          "type": "number"
+        },
+        "logo_url": {
+          "type": "string"
+        }
+      }
+    },
+    "Campus": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        }
+      }
+    },
+    "Course": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "shift": {
+          "type": "string"
+        },
+        "university": {
+          "type": "object",
+          "$ref": "#/definitions/University"
+        },
+        "campus": {
+          "type": "object",
+          "$ref": "#/definitions/Campus"
+        }
+      }
+    },
+    "Courses": {
+      "properties": {
+        "total": {
+          "type": "number"
+        },
+        "courses": {
+          "type": "array",
+          "$ref": "#/definitions/Course"
+        }
+      }
+    },
+    "Offer": {
+      "properties": {
+        "full_price": {
+          "type": "number"
+        },
+        "price_with_discount": {
+          "type": "number"
+        },
+        "discount_percentage": {
+          "type": "number"
+        },
+        "start_date": {
+          "type": "string"
+        },
+        "enrollment_semester": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "course": {
+          "type": "object",
+          "properties": {
+            "kind": "string",
+            "level": "string",
+            "shift": "string",
+            "name": "string"
+          }
+        },
+        "campus": {
+          "type": "object",
+          "$ref": "#/definitions/Campus"
+        },
+        "university": {
+          "type": "object",
+          "$ref": "#/definitions/University"
+        }
+      }
+    },
+    "Offers": {
+      "properties": {
+        "total": {
+          "type": "number"
+        },
+        "offers": {
+          "type": "array",
+          "$ref": "#/definitions/Offer"
+        }
+      }
+    }
+  }
+}
