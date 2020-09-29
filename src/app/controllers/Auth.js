@@ -10,10 +10,10 @@ class AuthController {
 
     if (!(await user.checkPassword(password))) return res.status(401).json({ msg: 'Password does not match' });
 
-    const { id, name, role } = user;
+    const { id, fullname } = user;
 
     return res.status(200).json({
-      user: { id, name, role },
+      user: { id, fullname },
       token: user.generateToken(),
     });
   }
