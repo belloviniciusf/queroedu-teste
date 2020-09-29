@@ -193,7 +193,7 @@
           {
             "name": "orderBy",
             "in": "query",
-            "description": "Ordenar por preço com desconto"
+            "description": "Ordenar por preço com desconto (asc, desc)"
           }
         ],
         "description": "Listar cursos",
