@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "queroedu-test.herokuapp.com",
+  "host": "localhost",
   "basePath": "/",
   "tags": [
     {
@@ -33,7 +33,8 @@
     }
   },
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
